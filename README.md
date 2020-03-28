@@ -1,5 +1,7 @@
 # bloom
 
+Bloom filter with remove. Not for production use. 
+
 ## Project setup
 ```
 npm install
