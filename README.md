@@ -2,6 +2,10 @@
 
 Bloom filter with remove. Not for production use. 
 
+One of the first facts you learn about Bloom filters is that they don't support removal of an item. 
+
+The Bloom filter was invented in 1970, when we did have to conserve every precious byte. Today things are different, so for fun I combined a couple of concepts to implement remove.
+
 ## Project setup
 ```
 npm install
