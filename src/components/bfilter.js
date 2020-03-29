@@ -2,8 +2,8 @@
 //
 // todo: calculate m and k from requirements 
 
-const m = 1000;     // todo: calculate this 
-const k = 3;        // Number of hashes to use, todo: calculate
+const m = 1000000;     // todo: calculate this 
+const k = 4;        // Number of hashes to use, todo: calculate
 
 var blist = [];     // todo: instead of a var, call an api on a server to add to a database
 var filter = [];    // Since I have lots more RAM than Mr. Bloom, I'll use it rather than fool with bits
