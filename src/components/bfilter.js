@@ -2,7 +2,7 @@
 //
 // todo: calculate m and k from requirements 
 
-const m = 1000000;     // todo: calculate this 
+const m = 1000000;  // todo: calculate this 
 const k = 4;        // Number of hashes to use, todo: calculate
 
 var blist = [];     // todo: instead of a var, call an api on a server to add to a database
@@ -53,20 +53,21 @@ module.exports = {
 
         if (blistindex > -1) {
             blist.splice(blistindex, 1);
+
+            for (var i = 0; i < k; i++)
+            {         
+                const index = murmur.murmur3(item, seeds[i]) % m;
+
+                filter[index]--;    // Update the filter by decrementing the ref count
+                                    // Note we are sure these were previously set, though 
+                                    // testing for undefined isn't a bad idea
+
+                if (filter[index] <= 0) 
+                    filter[index] = undefined; // This way may let the system manage memory better than if we left a 0
+            }   
+            return true;
         }
-        
-        for (var i = 0; i < k; i++)
-        {         
-            const index = murmur.murmur3(item, seeds[i]) % m;
-
-            filter[index]--;    // Update the filter by decrementing the ref count
-                                // Note we are sure these were previously set, though 
-                                // testing for undefined isn't a bad idea
-
-            if (filter[index] <= 0) 
-                filter[index] = undefined; // This way may let the system manage memory better than if we left a 0
-        }
-
-        return true;
+        else
+            return false; // turned out not to be in set
     },
 }
