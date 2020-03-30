@@ -6,6 +6,8 @@ One of the first facts you learn about Bloom filters is that they don't support 
 
 The Bloom filter was invented in 1970, when we did have to conserve every precious byte. Today things are different, so for fun I combined a couple of concepts to implement remove.
 
+Tested with Firefox 74.0, Ubuntu 18.04 LTS, @vue/cli 4.1.2, node v12.14.1
+
 ## Project setup
 ```
 npm install
